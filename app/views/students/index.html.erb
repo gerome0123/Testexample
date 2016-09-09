@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Student List</h1>
+
+<br>
+<% @students.each do |student| %>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="well well-lg">
+      <div class="student-name">
+        <h4 align="center"><%= student.name.titleize %></h4>
+      </div>
+      <hr>
+        <div class="student-action" align="center">
+          <%= link_to "Edit This Student", edit_student_path(student), class: "btn btn-xs btn-primary" %>
+          <%= link_to "Delete this Student", student, method: :delete,
+                    data: { confirm: "Are you sure you want to delete the article?"},
+                    class: "btn btn-xs btn-danger" %>
+          <%= link_to "View Student", student, class: "btn btn-xs btn-success" %>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<h2 align="center"><%= link_to 'New Student', new_student_path, class:"btn btn-xs btn-new" %></h2>

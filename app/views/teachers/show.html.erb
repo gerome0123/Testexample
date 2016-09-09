@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @teacher.avatar.url, class: " photo" %>
+
+
+<div class="col-xs-8 col-xs-offset-2">
+  <div class="well well-lg">
+    <div class="teacher-name">
+      <h4 align="center">Name</h4>
+      <h5 align="center"><%= @teacher.firstname + " " +@teacher.lastname %></h5>
+    </div>
+    <hr>
+    <div class="teacher-subjects">
+      <h4 align="center">Subject(s)</h4>
+      <% @teacher.subjects.each do |s| %>
+         <h5 align="center"><%= s.name %> </h5>
+      <% end %>
+    </div>
+
+
+    <hr>
+
+    <div class="teacher-book">
+      <h4 align="center"> Book(s)</h4>
+      <% @teacher.subjects.each do |s| %>
+          <% s.books.each do |b| %>
+              <h5 align="center"><%= b.title %></h5>
+          <% end %>
+      <% end %>
+    </div>
+
+    <div class="student-action" align="center">
+      <%= link_to "Edit This Teacher", edit_teacher_path(@teacher), class: "btn btn-xs btn-primary" %>
+      <%= link_to 'Back', teachers_path, class: "btn btn-xs btn-primary" %>
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+

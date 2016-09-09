@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-xs-8 col-xs-offset-2">
+  <div class="well well-lg">
+    <div class="subject-name">
+      <h3 align="center">Name</h3>
+      <h4 align="center"><%= @subject.name %></h4>
+    </div>
+    <hr>
+    <div class="subject-units">
+      <h3 align="center">Unit</h3>
+        <h4 align="center"> <%=@subject.unit%></h4>
+    </div>
+
+    <hr>
+
+    <div class="subject-teacher">
+      <h3 align="center">Teacher</h3>
+      <% @subject.teachers.each do |t| %>
+        <h4 align="center"><%= t.firstname + " " + t.lastname %></h4>
+      <% end %>
+    </div>
+    <hr>
+    <div class="subject-book">
+      <h3 align="center">Book</h3>
+      <% @subject.books.each do |b| %>
+          <h4 align="center"><%= b.title.capitalize %></h4>
+      <% end %>
+    </div>
+
+    <div class="student-action" align="center">
+      <%= link_to "Edit This Subject", edit_subject_path(@subject), class: "btn btn-xs btn-primary" %>
+      <%= link_to 'Back', subjects_path, class: "btn btn-xs btn-primary" %>
+
+
+    </div>
+  </div>
+</div>
+
+</div>

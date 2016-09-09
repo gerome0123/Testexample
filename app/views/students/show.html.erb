@@ -1,0 +1,41 @@
+<%= image_tag @student.avatar.url, class: " photo" %>
+<div class="col-xs-8 col-xs-offset-2">
+  <div class="well well-lg">
+    <div class="student-name">
+      <h3 align="center">Name</h3>
+      <h4 align="center"><%= @student.name %></h4>
+    </div>
+    <hr>
+    <div class="student-teacher">
+          <h4 align="center">Subject(s)</h4>
+        <% @student.subjects.each do |s| %>
+
+          <% s.teachers.each do |t| %>
+
+          <h5 align="center"><%= s.name %>/<%=	t.firstname + " " + t.lastname  %>  </h5>
+        <% end %>
+        <% end %>
+    </div>
+
+
+    <hr>
+
+    <div class="student book">
+      <h4 align="center"><%= pluralize(@student.books.count, "Book") %></h4>
+      <% @student.subjects.each do |s| %>
+        <% s.books.each do |b| %>
+          <h5 align="center"><%= b.title.capitalize %></h5>
+        <% end %>
+       <% end %>
+    </div>
+
+    <div class="student-action" align="center">
+      <%= link_to "Edit This Student", edit_student_path(@student), class: "btn btn-xs btn-primary" %>
+      <%= link_to 'Back', students_path, class: "btn btn-xs btn-primary" %>
+
+
+    </div>
+  </div>
+</div>
+
+</div>

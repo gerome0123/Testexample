@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-xs-8 col-xs-offset-2">
+  <div class="well well-lg">
+    <div class="book-title">
+      <h3 align="center">Title</h3>
+      <h4 align="center"><%= @book.title %></h4>
+    </div>
+    <hr>
+    <div class="book-price">
+      <h3 align="center">Price</h3>
+      <h4 align="center"> <%=@book.price.to_s + "Php" %></h4>
+    </div>
+
+    <div class="student-action" align="center">
+      <%= link_to "Edit This Book", edit_book_path(@book), class: "btn btn-xs btn-primary" %>
+      <%= link_to 'Back', books_path, class: "btn btn-xs btn-primary" %>
+
+
+    </div>
+  </div>
+</div>
+
+</div>
